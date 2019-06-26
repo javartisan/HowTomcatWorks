@@ -7,6 +7,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 
+/**
+ * @author Daxin
+ */
 public class HttpServer1 {
 
   /** WEB_ROOT is the directory where our HTML and other files reside.

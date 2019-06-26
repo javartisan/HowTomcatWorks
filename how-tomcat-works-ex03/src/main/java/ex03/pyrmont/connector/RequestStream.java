@@ -162,14 +162,17 @@ public class RequestStream
      *
      * @exception IOException if an input/output error occurs
      */
+    @Override
     public int read(byte b[], int off, int len) throws IOException {
 
         int toRead = len;
         if (length > 0) {
-            if (count >= length)
+            if (count >= length) {
                 return (-1);
-            if ((count + len) > length)
+            }
+            if ((count + len) > length) {
                 toRead = length - count;
+            }
         }
         int actuallyRead = super.read(b, off, toRead);
         return (actuallyRead);

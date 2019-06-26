@@ -14,11 +14,13 @@ public class ResponseWriter extends PrintWriter {
     super(writer);
   }
 
+  @Override
   public void print(boolean b) {
     super.print(b);
     super.flush();
   }
 
+  @Override
   public void print(char c) {
     super.print(c);
     super.flush();

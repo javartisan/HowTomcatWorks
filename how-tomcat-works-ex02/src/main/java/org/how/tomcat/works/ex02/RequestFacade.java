@@ -10,6 +10,9 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletInputStream;
 import javax.servlet.ServletRequest;
 
+/**
+ * @author Daxin
+ */
 public class RequestFacade implements ServletRequest {
 
   private ServletRequest request = null;
@@ -19,14 +22,17 @@ public class RequestFacade implements ServletRequest {
   }
 
   /* implementation of the ServletRequest*/
+  @Override
   public Object getAttribute(String attribute) {
     return request.getAttribute(attribute);
   }
 
+  @Override
   public Enumeration getAttributeNames() {
     return request.getAttributeNames();
   }
 
+  @Override
   public String getRealPath(String path) {
     return request.getRealPath(path);
   }
