@@ -11,6 +11,9 @@ import javax.servlet.ServletInputStream;
 import javax.servlet.ServletRequest;
 
 /**
+ * 其实就是一个普通子类，http服务器组件开发者自行实现的方法可以在Facade类中实现，
+ * 而业务开发者面向HttpServletRequest/Response变成。
+ *
  * @author Daxin
  */
 public class RequestFacade implements ServletRequest {

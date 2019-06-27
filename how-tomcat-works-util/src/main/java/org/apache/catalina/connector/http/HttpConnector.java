@@ -861,6 +861,7 @@ public final class HttpConnector
 
         //        if (debug >= 2)
         //            log("newProcessor: Creating new processor");
+        // HttpProcessor是一个线程
         HttpProcessor processor = new HttpProcessor(this, curProcessors++);
         if (processor instanceof Lifecycle) {
             try {
@@ -951,8 +952,9 @@ public final class HttpConnector
                 socket = serverSocket.accept();
                 //                if (debug >= 3)
                 //                    log("run: Returned from serverSocket.accept()");
-                if (connectionTimeout > 0)
+                if (connectionTimeout > 0) {
                     socket.setSoTimeout(connectionTimeout);
+                }
                 socket.setTcpNoDelay(tcpNoDelay);
             } catch (AccessControlException ace) {
                 log("socket accept security exception", ace);
@@ -1012,6 +1014,7 @@ public final class HttpConnector
             }
             //            if (debug >= 3)
             //                log("run: Assigning socket to processor " + processor);
+            //连接器将socket丢给processor处理
             processor.assign(socket);
 
             // The processor will recycle itself when it finishes
